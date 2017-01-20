@@ -9,8 +9,8 @@ file.
 
 ## Content
 
-getfiles21.sh and getfiles30.sh:
-    Downloads files containing FENDL from WEB and unzip it into the form needed by scripts `combine*.sh`.
+`getfiles21.sh` and `getfiles30.sh`
+: Downloads files containing FENDL from WEB and unzip it into the form needed by scripts `combine*.sh`.
 
 combine21.sh and combine30.sh:
     Scripts to process files containing FENDL libraries, as downloaded and unzipped by scripts `getfiles*.sh`
