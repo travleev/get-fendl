@@ -19,20 +19,21 @@ mv xsdir.1 xsdir.1.old
 sed 's/\([A-Z]\)\([A-Z]\)/\1\L\2/g' xsdir.1.old > xsdir.1
 
 # Prepare specs file for makxsf that is used to put all cross-sections into a single file
-sed 's/XX/21/g' ../specs.head > specs  # specs line header
+T=${2:-1}  # if not given in the command line, produce type 1 data.
+sed "s/XX/21/g; s/T/$T/g" ../specs.head > specs  # specs line header
 csplit -q xsdir.1 '/directory/1'
 awk '{ print $1 }' xx01 >> specs       # list of nuclides
 echo >> specs                          # final empty line
 
 # run makxsf, but preliminary remove resultting files
-rm xsdir21 fendl21;
+rm xsdir21.$T fendl21.$T;
 makxsf
 
 
 # copy resulted files to current dir
-if [ -f fendl21 ]; then
-   cp fendl21 ../. 
-   cp xsdir21 ../. 
+if [ -f fendl21.$T ]; then
+   cp fendl21.$T ../. 
+   cp xsdir21.$T ../. 
 fi; 
 
 

@@ -9,6 +9,9 @@ fi
 
 cd ace30
 
+# For some reasons, makxsf crashes on K-39. Remove it:
+rm 19K_039.*
+
 # prepare single xsdir from separate *.xdr files:
 cat ../awr.xsdir *.xdr > xsdir.1 
 
@@ -26,19 +29,20 @@ dos2unix -q xsdir.1
 
 
 # Prepare specs file for makxsf that is used to put all cross-sections into a single file
-sed 's/XX/30/g' ../specs.head > specs  # specs line header
+T=${2:-1}
+sed "s/XX/30/g; s/T/$T/g" ../specs.head > specs  # specs line header
 csplit -q xsdir.1 '/directory/1'
 awk '{ print $1 }' xx01 >> specs       # list of nuclides
 echo >> specs                          # final empty line
 
 # run makxsf
-rm xsdir30 fendl30;
+rm xsdir30.$T fendl30.$T;
 makxsf
 
 # copy resulted files to current dir
-if [ -f fendl30 ]; then
-   cp fendl30 ../. 
-   cp xsdir30 ../. 
+if [ -f fendl30.$T ]; then
+   cp fendl30.$T ../. 
+   cp xsdir30.$T ../. 
 fi; 
 
 
