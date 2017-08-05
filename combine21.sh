@@ -1,5 +1,17 @@
 #!/bin/bash
 
+if [ -z "$@" ]; then
+    echo "Usage:"
+    echo
+    echo "  >combine21.sh  [xsdir [12]]"
+    echo
+    echo "where xsdir -- file containing the awr section of xsdir,"
+    echo "and 1 or 2 -- type of cross-section data to generate."
+    echo "by default, type-1 data produced."
+    echo
+    exit 0
+fi    
+
 ./get_awr.sh "$@"
 
 if [[ "0" -ne $? ]]; then 
