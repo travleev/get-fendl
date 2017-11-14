@@ -8,10 +8,9 @@ if [[ "0" -ne $? ]]; then
 fi    
 
 cd ace30
-dos2unix *
 
-# For some reasons, makxsf crashes on K-39. Remove it:
-rm 19K_039.*
+# # For some reasons, makxsf crashes on K-39. Remove it:
+# rm 19K_039.*
 
 # prepare single xsdir from separate *.xdr files:
 cat ../awr.xsdir *.xdr > xsdir.1 

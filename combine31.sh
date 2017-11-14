@@ -8,7 +8,6 @@ if [[ "0" -ne $? ]]; then
 fi    
 
 cd ace31
-dos2unix *
 
 # prepare single xsdir from separate *.xdr files:
 cat ../awr.xsdir *.xsd > xsdir.1 

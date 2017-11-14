@@ -90,6 +90,7 @@ if [ -d downloads21 ]; then
     for z in $(ls ../downloads21/*.zip); do
         unzip $z;
     done;
+    dos2unix *
 fi;
 
 

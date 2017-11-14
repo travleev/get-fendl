@@ -20,7 +20,6 @@ if [[ "0" -ne $? ]]; then
 fi    
 
 cd ace21
-dos2unix *
 
 # prepare single xsdir from separate *.dir files:
 cat ../awr.xsdir *.dir > xsdir.1
