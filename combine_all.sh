@@ -14,5 +14,6 @@ for T in 1 2; do
             fi
         fi
     done; 
+    # TODO Add activation XS
 done;    
 

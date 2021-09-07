@@ -3,7 +3,7 @@
 
 The scripts automatize downloading, unzipping and preparing FENDL libraries
 for use with MCNP.  These scripts rely on `wget`, `unzip`, `csplit`, `awk` and
-`sed`  standard linux utilities and also use the `makxsf` programm that is part of
+`sed`  standard linux utilities, as well the `makxsf` programm that is part of
 MCNP distribution. The latter is used to put all cross-sections into a single
 file.
 
